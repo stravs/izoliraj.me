@@ -78,10 +78,28 @@ body {
   -webkit-tap-highlight-color: #222222; }
 
 .margintop {
-  margin-top: 20px; }
+  margin-top: 50px; }
 
 .img-celuloza {
   margin-top: 3rem; }
+
+#tehnicni-podatki {
+  background-color: #6a971f;
+  padding-top: 25px;
+  margin-top: 25px; }
+  @media (min-width: 768px) {
+    #tehnicni-podatki {
+      border-radius: 5px; } }
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+button {
+  margin: 10px; }
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
@@ -349,7 +367,7 @@ header.masthead {
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  border-radius: 300px;
+  border-radius: 5px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
 
 .btn-xl {
@@ -363,3 +381,6 @@ header.masthead {
 
 .card-block {
   padding: 1em; }
+
+.btn {
+  box-shadow: none !important; }

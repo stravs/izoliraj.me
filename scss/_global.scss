@@ -91,9 +91,26 @@ body {
 }
 
 .margintop {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .img-celuloza {
   margin-top: 3rem;
+}
+
+#tehnicni-podatki {
+  background-color: #6a971f;
+  padding-top: 25px;
+  margin-top: 25px;
+  @media (min-width: 768px) {
+    border-radius: 5px;
+  }
+}
+
+.vertical-align {
+  @include vertical-align();
+}
+
+button {
+  margin: 10px;
 }

@@ -52,6 +52,12 @@
     distance: '0px'
   }, 300);
 
+
+  //harmonika
+  $('#harmonika').on('show.bs.collapse', function () {
+    $('#harmonika').find('.collapse.show').collapse('hide');
+  })
+
   // Magnific popup calls
   $('.popup-gallery').magnificPopup({
     delegate: 'a',

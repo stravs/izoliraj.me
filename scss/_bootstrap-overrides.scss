@@ -20,7 +20,7 @@
   font-weight: 700;
   text-transform: uppercase;
   border: none;
-  border-radius: 300px;
+  border-radius: 5px;
   @include sans-serif-font;
 }
 
@@ -39,4 +39,8 @@
 
 .card-block {
   padding: 1em;
+}
+
+.btn {
+  box-shadow: none !important;
 }
