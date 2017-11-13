@@ -7,6 +7,7 @@ var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
 var imageResize = require('gulp-image-resize');
+var htmlmin = require('gulp-htmlmin');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -131,4 +132,11 @@ gulp.task('img-resize', function () {
       upscale : false
     }))
     .pipe(gulp.dest('./img/portfolio/thumbnails/'));
+});
+
+
+gulp.task('minify', function() {
+  return gulp.src('src/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('dist'));
 });
