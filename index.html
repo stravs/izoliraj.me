@@ -10,20 +10,6 @@
 
     <title>Izoliraj.me - strojna vgradnja celulozne izolacije </title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/creative.min.css" rel="stylesheet">
-
   </head>
 
   <body id="page-top">
@@ -268,15 +254,6 @@ Z uporabo celulozne izolacije prispevamo tudi k bistveno <strong>manjši porabi 
         </div>
       </div>
     </section>
-
-   <!--  <div class="call-to-action bg-dark">
-      <div class="container text-center">
-        <h2>Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-default btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
-      </div>
-    </div>
- -->
-
     <section class="bg-dark" id="onas">
       <div class="container">
         <div class="row">
@@ -315,6 +292,34 @@ Z uporabo celulozne izolacije prispevamo tudi k bistveno <strong>manjši porabi 
         </div>
       </div>
     </section>
+
+    <noscript id="deferred-styles">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom fonts for this template -->
+      <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+      <!-- Plugin CSS -->
+      <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="css/creative.min.css" rel="stylesheet">
+    </noscript>
+    <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

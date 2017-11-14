@@ -9,6 +9,7 @@ var pkg = require('./package.json');
 const imagemin = require('gulp-imagemin');
 var htmlmin = require('gulp-htmlmin');
 var build = require('gulp-build');
+const autoprefixer = require('gulp-autoprefixer');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -42,7 +43,6 @@ gulp.task('minify-css', ['sass'], function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest('css'))
-    .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -134,7 +134,7 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() 
 
 // Img resize
 gulp.task('img-min', () =>
-  gulp.src('img/**')
+  gulp.src('img/*')
     .pipe(imagemin())
     .pipe(gulp.dest('dist/images'))
 );
@@ -152,3 +152,12 @@ gulp.task('build', function() {
       .pipe(build({ GA_ID: '123456' }))
       .pipe(gulp.dest('dist'))
 });
+
+gulp.task('prefix', () =>
+  gulp.src('css/creative.min.css')
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
+    .pipe(gulp.dest('dist/creative.min.css'))
+);
