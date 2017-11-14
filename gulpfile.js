@@ -10,6 +10,7 @@ const imagemin = require('gulp-imagemin');
 var htmlmin = require('gulp-htmlmin');
 var build = require('gulp-build');
 const autoprefixer = require('gulp-autoprefixer');
+var concat = require('gulp-concat');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -46,6 +47,17 @@ gulp.task('minify-css', ['sass'], function() {
     .pipe(browserSync.reload({
       stream: true
     }))
+});
+
+gulp.task('minify-csss', function() {
+    return gulp.src('css/creative_all.css')
+    .pipe(cleanCSS({
+      compatibility: 'ie8'
+    }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest('css'))
 });
 
 // Minify custom JS
@@ -153,6 +165,8 @@ gulp.task('build', function() {
       .pipe(gulp.dest('dist'))
 });
 
+//CSS prefix
+
 gulp.task('prefix', () =>
   gulp.src('css/creative.min.css')
     .pipe(autoprefixer({
@@ -161,3 +175,11 @@ gulp.task('prefix', () =>
     }))
     .pipe(gulp.dest('dist/creative.min.css'))
 );
+
+
+//Concat
+gulp.task('pack-css', function () { 
+  return gulp.src(['css/creative.css', 'vendor/bootstrap/css/bootstrap.min.css', 'vendor/font-awesome/css/font-awesome.min.css', 'vendor/magnific-popup/magnific-popup.css'])
+    .pipe(concat('creative_all.css'))
+    .pipe(gulp.dest('css'));
+});
