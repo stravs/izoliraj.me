@@ -6,8 +6,9 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
-var imageResize = require('gulp-image-resize');
+const imagemin = require('gulp-imagemin');
 var htmlmin = require('gulp-htmlmin');
+var build = require('gulp-build');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -41,6 +42,7 @@ gulp.task('minify-css', ['sass'], function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -57,6 +59,7 @@ gulp.task('minify-js', function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -72,21 +75,27 @@ gulp.task('copy', function() {
       '!**/*.map'
     ])
     .pipe(gulp.dest('vendor/bootstrap'))
+    .pipe(gulp.dest('dist/vendor/bootstrap'))
 
   gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
     .pipe(gulp.dest('vendor/jquery'))
+    .pipe(gulp.dest('dist/vendor/jquery'))
 
   gulp.src(['node_modules/magnific-popup/dist/*'])
     .pipe(gulp.dest('vendor/magnific-popup'))
+    .pipe(gulp.dest('dist/vendor/magnific-popup'))
 
   gulp.src(['node_modules/scrollreveal/dist/*.js'])
     .pipe(gulp.dest('vendor/scrollreveal'))
+    .pipe(gulp.dest('dist/vendor/scrollreveal'))
 
   gulp.src(['node_modules/popper.js/dist/umd/popper.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
     .pipe(gulp.dest('vendor/popper'))
+    .pipe(gulp.dest('dist/vendor/popper'))
 
   gulp.src(['node_modules/jquery.easing/*.js'])
     .pipe(gulp.dest('vendor/jquery-easing'))
+    .pipe(gulp.dest('dist/vendor/jquery-easing'))
 
   gulp.src([
       'node_modules/font-awesome/**',
@@ -96,7 +105,8 @@ gulp.task('copy', function() {
       '!node_modules/font-awesome/*.md',
       '!node_modules/font-awesome/*.json'
     ])
-    .pipe(gulp.dest('vendor/font-awesome'))
+    .pipe(gulp.dest('vendor/font-awesome')) 
+    .pipe(gulp.dest('dist/vendor/font-awesome'))
 })
 
 // Default task
@@ -123,20 +133,22 @@ gulp.task('dev', ['browserSync', 'sass', 'minify-css', 'minify-js'], function() 
 
 
 // Img resize
-gulp.task('img-resize', function () {
-  gulp.src('./img/portfolio/fullsize/*')
-    .pipe(imageResize({
-      width : 650,
-      height : 350,
-      crop : true,
-      upscale : false
-    }))
-    .pipe(gulp.dest('./img/portfolio/thumbnails/'));
-});
+gulp.task('img-min', () =>
+  gulp.src('img/**')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images'))
+);
 
-
+// Minify html
 gulp.task('minify', function() {
-  return gulp.src('src/*.html')
+  return gulp.src('*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist'));
+});
+
+// Build tool
+gulp.task('build', function() {
+  gulp.src('scripts/*.js')
+      .pipe(build({ GA_ID: '123456' }))
+      .pipe(gulp.dest('dist'))
 });
