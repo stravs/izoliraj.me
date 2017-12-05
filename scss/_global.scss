@@ -57,7 +57,7 @@ p {
 }
 
 section {
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .section-heading {
@@ -113,4 +113,42 @@ body {
 
 button {
   margin: 10px;
+}
+
+#celuloza {
+  border-top: $theme-primary 10px solid;
+}
+
+
+#onas h1{
+  font-weight: 900;
+  color: $theme-primary;
+}
+
+#diagram {
+  height: 100px;
+}
+
+
+.box{
+  border:1px solid;
+    text-align: center;
+}
+
+.top-padd {
+  padding-top: 60px;
+}
+
+.margin-ikone {
+  margin: 20px 0;
+}
+
+.ikone-img {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  #icones h3 {
+    text-align: center !important;
+  }  
 }

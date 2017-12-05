@@ -10,6 +10,11 @@
 
 .btn-default {
   @include button-variant($gray-darker, white, white);
+  border: #6a971f 2px solid !important;
+  color: #6a971f;
+  .hover{
+    color: #6a971f !important;
+  }
 }
 
 .btn-primary {
