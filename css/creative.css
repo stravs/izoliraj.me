@@ -51,7 +51,7 @@ p {
   color: rgba(255, 255, 255, 0.7); }
 
 section {
-  padding: 100px 0; }
+  padding: 60px 0; }
 
 .section-heading {
   margin-top: 0; }
@@ -100,6 +100,33 @@ body {
 
 button {
   margin: 10px; }
+
+#celuloza {
+  border-top: #6a971f 10px solid; }
+
+#onas h1 {
+  font-weight: 900;
+  color: #6a971f; }
+
+#diagram {
+  height: 100px; }
+
+.box {
+  border: 1px solid;
+  text-align: center; }
+
+.top-padd {
+  padding-top: 60px; }
+
+.margin-ikone {
+  margin: 20px 0; }
+
+.ikone-img {
+  margin-bottom: 10px; }
+
+@media (max-width: 768px) {
+  #icones h3 {
+    text-align: center !important; } }
 
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
@@ -177,8 +204,8 @@ header.masthead {
   min-height: auto;
   text-align: center;
   color: white;
-  background-image: url("../img/osb.jpg");
-  background-position: center;
+  background-image: url("../img/izoliraj_head.jpg");
+  background-position: bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -187,20 +214,21 @@ header.masthead {
     position: relative;
     width: 100%;
     padding: 150px 15px 100px;
-    text-align: center; }
-    header.masthead .header-content .header-content-inner h1 {
-      font-size: 30px;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 0;
-      text-transform: uppercase; }
-    header.masthead .header-content .header-content-inner hr {
-      margin: 30px auto; }
-    header.masthead .header-content .header-content-inner p {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 50px;
-      color: white; }
+    text-align: left !important; }
+    header.masthead .header-content .header-content-inner {
+      color: #222222; }
+      header.masthead .header-content .header-content-inner h1 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 0;
+        text-transform: uppercase; }
+      header.masthead .header-content .header-content-inner hr {
+        margin: 30px 0px; }
+      header.masthead .header-content .header-content-inner p {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 50px; }
   @media (min-width: 768px) {
     header.masthead {
       height: 100%;
@@ -220,9 +248,7 @@ header.masthead {
             font-size: 50px; }
           header.masthead .header-content .header-content-inner p {
             font-size: 18px;
-            max-width: 80%;
-            margin-right: auto;
-            margin-left: auto; } }
+            max-width: 80%; } }
 
 .service-box {
   max-width: 400px;
@@ -292,7 +318,9 @@ header.masthead {
 .btn-default {
   color: #222222;
   border-color: white;
-  background-color: white; }
+  background-color: white;
+  border: #6a971f 2px solid !important;
+  color: #6a971f; }
   .btn-default.focus, .btn-default:focus {
     color: #222222;
     border-color: #bfbfbf;
@@ -325,6 +353,8 @@ header.masthead {
   .btn-default .badge {
     color: white;
     background-color: #222222; }
+  .btn-default .hover {
+    color: #6a971f !important; }
 
 .btn-primary {
   color: white;
